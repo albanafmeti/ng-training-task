@@ -2,21 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import routes from './routes';
+import { appRoutes } from './routes';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/general/not-found/not-found.component';
+import { InvoicesPageComponent, AddInvoiceComponent, InvoiceRecordComponent, SearchInvoiceComponent } from './components/invoices';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InvoicesPageComponent,
+    AddInvoiceComponent,
+    InvoiceRecordComponent,
+    SearchInvoiceComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { enableTracing: true })
+    RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
