@@ -1,4 +1,4 @@
-const users = [
+const USERS_LIST = [
     {
         id: 1,
         first_name: "Alban",
@@ -8,4 +8,4 @@ const users = [
     }
 ];
 
-export default users;
+export default USERS_LIST;
