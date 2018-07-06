@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="card">
+
+        <div class="card-header">
+          <h4 class="text-left">Invoices
+
+            <button role="button" class="btn btn-link pull-right" (click)="onShowAddInvoice()">
+              <i class="fa fa-plus"></i>&nbsp;&nbsp;New Invoice
+            </button>
+
+          </h4>
+        </div>
+
+        <div class="card-body">
+
+          <app-add-invoice *ngIf="showAddInvoice" (onHide)="onHideAddInvoice()" (onAdd)="loadInvoices()"></app-add-invoice>
+
+          <app-search-invoice (onSearch)="onSearching($event)"></app-search-invoice>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Creation Date</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr app-invoice-record *ngFor="let invoice of invoices" [invoice]="invoice" (onDelete)="loadInvoices()" (onDuplicate)="loadInvoices()"></tr>
+
+                <tr *ngIf="!invoices.length">
+                  <td colspan="4" class="text-center">No results.</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,13 +3,17 @@
   <div class="card border-dashed-1">
     <div class="card-header bg-white">
       <label class="m-0">New Invoice</label>
+
+      <button class="btn btn-link btn-sm pull-right" (click)="onHideAddInvoice()">
+        <i class="fa fa-times"></i>
+      </button>
     </div>
     <div class="card-body">
       <form>
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Invoice Name" />
+          <input type="text" class="form-control" placeholder="Invoice Name" name="name" [(ngModel)]="name" />
           <div class="input-group-append">
-            <button class="btn btn-outline-primary" type="button">Add</button>
+            <button class="btn btn-outline-primary" type="button" (click)="onAddClick()">Add</button>
           </div>
         </div>
       </form>

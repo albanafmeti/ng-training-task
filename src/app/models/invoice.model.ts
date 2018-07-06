@@ -2,9 +2,9 @@ import { User } from './user.model';
 
 export class Invoice {
 
-    id: Number;
-    name: String;
-    user_id: Number;
+    id: number;
+    name: string;
+    user_id: number;
     created_at: Date;
 
     // Additional property:
@@ -14,7 +14,7 @@ export class Invoice {
         return {
             id: this.id,
             name: this.name,
-            user_id: this.user.id,
+            user_id: this.user ? this.user.id : this.user_id,
             created_at: this.created_at
         }
     }

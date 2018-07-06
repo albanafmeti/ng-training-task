@@ -50,7 +50,9 @@ export class StorageService {
    */
   getObject(key: String) {
     const value = this.localStorage.getItem(key);
-    return JSON.parse(value);
+    if (value) {
+      return JSON.parse(value);
+    }
   }
 
   /**
@@ -59,7 +61,9 @@ export class StorageService {
    */
   getArray(key: String) {
     const value = this.localStorage.getItem(key);
-    return JSON.parse(value);
+    if (value) {
+      return JSON.parse(value);
+    }
   }
 
   /**

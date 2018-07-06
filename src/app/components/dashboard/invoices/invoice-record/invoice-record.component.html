@@ -1,0 +1,11 @@
+<th scope="row">{{ invoice.id }}</th>
+<td>{{ invoice.name }}</td>
+<td>{{ invoice.created_at }}</td>
+<td>
+  <button class="btn btn-sm btn-outline-info" (click)="onDuplicateClick()">
+    <i class="fa fa-clone"></i>
+  </button>
+  <button class="btn btn-sm btn-outline-danger" (click)="onDeleteClick()">
+    <i class="fa fa-trash-o"></i>
+  </button>
+</td>

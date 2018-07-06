@@ -1,12 +1,12 @@
 export class User {
 
-    id: Number;
-    first_name: String;
-    last_name: String;
-    email: String;
-    password: String;
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    password: string;
 
-    hasPassword(password: String): Boolean {
+    hasPassword(password: string): Boolean {
         return this.password === password;
     }
 

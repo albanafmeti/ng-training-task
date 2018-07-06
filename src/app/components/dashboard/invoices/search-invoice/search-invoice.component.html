@@ -1,0 +1,13 @@
+<div class="search-form mb-2">
+  <div class="form">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" (keyup)="onSearching()" name="keywords" [(ngModel)]="keywords"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="onSearching()">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

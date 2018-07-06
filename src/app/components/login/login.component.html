@@ -7,17 +7,17 @@
         </div>
         <div class="card-body">
 
-          <div>
+          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="form-group">
               <label for="email-address">Email address</label>
-              <input type="email" class="form-control" id="email-address" aria-describedby="Email" placeholder="Enter email">
+              <input type="email" class="form-control" id="email-address" name="email" placeholder="Enter email" ngModel required>
             </div>
             <div class="form-group">
               <label for="password-field">Password</label>
-              <input type="password" class="form-control" id="password-field" placeholder="Password">
+              <input type="password" class="form-control" id="password-field" name="password" placeholder="Password" ngModel required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-          </div>
+          </form>
 
         </div>
       </div>

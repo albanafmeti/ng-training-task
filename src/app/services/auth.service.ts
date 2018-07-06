@@ -13,10 +13,10 @@ export class AuthService {
    * @param email 
    * @param password 
    */
-  authenticate(email: string, password: String): Boolean {
+  authenticate(email: string, password: string): boolean {
     const user = this.userService.getUserByEmail(email);
 
-    if (user.hasPassword(password)) {
+    if (user && user.hasPassword(password)) {
       this.save(user);
       return true;
     }
@@ -37,7 +37,9 @@ export class AuthService {
    */
   user(): User {
     const jsonUser = this.storage.getObject('auth_user');
-    return User.fromJson(jsonUser);
+    if (jsonUser) {
+      return User.fromJson(jsonUser);
+    }
   }
 
   /**
@@ -50,7 +52,7 @@ export class AuthService {
   /**
    * Check if any user is authenticated.
    */
-  check(): Boolean {
+  check(): boolean {
     const auth_user = this.user();
     return !!auth_user;
   }

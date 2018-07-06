@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
-import USERS_LIST from '../../data/users.data';
 import { User } from '../models/user.model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class UserService {
 
-  constructor() { }
+  users = [];
+
+  constructor(private apiService: ApiService) {
+    this.apiService.getUsers().then(users => this.users = users);
+  }
 
   /**
    * Get user by email.
@@ -13,7 +17,7 @@ export class UserService {
    */
   getUserByEmail(email: String): User {
 
-    const users = USERS_LIST.filter(user => {
+    const users = this.users.filter(user => {
 
       return user.email === email;
 
@@ -29,7 +33,7 @@ export class UserService {
    * @param id 
    */
   getById(id: Number): User {
-    const users = USERS_LIST.filter(user => {
+    const users = this.users.filter(user => {
 
       return user.id === id;
 
